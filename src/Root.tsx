@@ -13,8 +13,8 @@ import {
 } from 'remotion';
 
 // ============================================================================
-// TIMING LOCKED TO YOUR 59-SECOND SCRIPT (30 FPS = 1770 FRAMES)
-// CapCut-e voiceover ar SFX boshale exact beat-e sync hoye jabe
+// TIMING LOCKED TO 59-SECOND SCRIPT (30 FPS = 1770 FRAMES)
+// Pure Visual | Zero External Files | CapCut Ready
 // ============================================================================
 const FPS = 30;
 const TOTAL_FRAMES = 59 * FPS; // 1770 frames
@@ -268,7 +268,7 @@ const CyberEnvironment: React.FC<{
         }}
       />
 
-      {/* Optional Motherboard Circuit Traces (used in Scene 5 & 6) */}
+      {/* Motherboard Circuit Traces (Scene 5 & 6) */}
       {circuitLines && (
         <svg
           viewBox="0 0 1080 1920"
@@ -368,7 +368,7 @@ const CyberPhone3D: React.FC<{
         position: 'relative',
       }}
     >
-      {/* Top Speaker / Dynamic Island */}
+      {/* Dynamic Island */}
       <div
         style={{
           position: 'absolute',
@@ -476,7 +476,6 @@ const Scene1SuspiciousLink: React.FC = () => {
   const primary = interpolateColors(dangerP, [0, 1], ['#00ccff', '#ff1f45']);
   const floatY = Math.sin(frame * 0.065) * 14;
 
-  // Tap cursor moving smoothly to the blue link
   const cursorX = interpolate(frame, [24, clickFrame - 4], [250, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -489,7 +488,6 @@ const Scene1SuspiciousLink: React.FC = () => {
   });
   const tapScale = frame >= clickFrame - 3 && frame <= clickFrame + 5 ? 0.78 : 1;
 
-  // Shockwave + Glitch
   const rippleScale = interpolate(frame, [clickFrame, clickFrame + 26], [0.2, 6], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -500,14 +498,12 @@ const Scene1SuspiciousLink: React.FC = () => {
   });
   const glitchX = frame >= clickFrame && frame <= clickFrame + 16 ? Math.sin(frame * 48) * 15 : 0;
 
-  // Data flying out of phone (Photos, Contacts, Private Info)
   const stealP = interpolate(frame, [82, 158], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.quad),
   });
 
-  // NO OTP / NO PASSWORD pops aligned to dialogue 0:05-0:08
   const otpPop = spring({ frame: frame - 152, fps, config: { damping: 12, stiffness: 165 } });
   const passPop = spring({ frame: frame - 172, fps, config: { damping: 12, stiffness: 165 } });
 
@@ -523,7 +519,6 @@ const Scene1SuspiciousLink: React.FC = () => {
         delay={isClicked ? 66 : 140}
       />
 
-      {/* Centered Floating Smartphone (Leaves clean bottom zone for CapCut) */}
       <AbsoluteFill
         style={{
           justifyContent: 'center',
@@ -553,7 +548,6 @@ const Scene1SuspiciousLink: React.FC = () => {
             </span>
           </div>
 
-          {/* Unknown Message Card */}
           <div
             style={{
               margin: '26px 24px',
@@ -587,7 +581,6 @@ const Scene1SuspiciousLink: React.FC = () => {
             </div>
           </div>
 
-          {/* Click Ripple Wave */}
           {isClicked && (
             <div
               style={{
@@ -606,7 +599,6 @@ const Scene1SuspiciousLink: React.FC = () => {
             />
           )}
 
-          {/* Animated Touch Indicator */}
           {frame >= 22 && frame <= 80 && (
             <div
               style={{
@@ -624,7 +616,6 @@ const Scene1SuspiciousLink: React.FC = () => {
             />
           )}
 
-          {/* Red Alert Banner Inside Phone */}
           {isClicked && (
             <div
               style={{
@@ -640,4 +631,19 @@ const Scene1SuspiciousLink: React.FC = () => {
               <div style={{ fontSize: 22, fontWeight: 900, color: '#ff4d6d', letterSpacing: 2 }}>
                 ⚠ HIDDEN SCRIPT EXECUTED
               </div>
-              <div style={{ fontSize: 15, color:
+              <div style={{ fontSize: 15, color: '#ffd1d9', marginTop: 8, fontFamily: 'monospace' }}>
+                UNAUTHORIZED TRANSFER ACTIVE
+              </div>
+            </div>
+          )}
+        </CyberPhone3D>
+
+        {isClicked && (
+          <>
+            <div
+              style={{
+                position: 'absolute',
+                transform: `translate(${interpolate(stealP, [0, 1], [-120, -340])}px, ${interpolate(stealP, [0, 1], [30, -270])}px) scale(${stealP})`,
+                opacity: stealP,
+              }}
+
