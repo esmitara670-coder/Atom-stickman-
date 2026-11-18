@@ -15,7 +15,7 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npx remotion browser ensure
-      - run: npx remotion render src/index.ts HelloWorld out/video.mp4
+      - run: npx remotion render src/index.ts PremiumVoice out/video.mp4
       - uses: actions/upload-artifact@v4
         with:
           name: rendered-video
