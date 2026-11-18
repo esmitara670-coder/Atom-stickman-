@@ -8,7 +8,7 @@
  *
  * Required:
  *   npm i @remotion/media-utils
- *   Put your audio at: public/studio_voice__12_.wav
+ *   Put your audio at: public/studio_voice (12).wav
  *
  * Render:
  *   npx remotion render PremiumVoice out/voice.mp4
@@ -35,7 +35,7 @@ import {
 
 /* ---------------- SETTINGS ---------------- */
 
-const AUDIO_FILE = "studio_voice__12_.wav";
+const AUDIO_FILE = "studio_voice (12).wav";
 const FPS = 30;
 const FALLBACK_SECONDS = 56.05;
 
